@@ -1,0 +1,8 @@
+{
+    "env":{
+        "DB_NAME":"iNote",
+        "DB_PASSWORD":"dhRuv16o916",
+        "DB_USER":"dhruv161609"
+        
+    }
+}
