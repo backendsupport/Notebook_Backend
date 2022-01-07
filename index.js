@@ -12,6 +12,6 @@ app.use('/api/notes',require('./routes/notes'))
 app.get('/', (req, res) => {
   res.send(`There is Nothing here`)
 })
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
   console.log(`iNotebook_Backend listening at http://localhost:${port}`)
 })
