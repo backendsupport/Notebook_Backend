@@ -4,8 +4,12 @@
   "description": "this will help to store the note",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js" 
+   "start": "node index.js",
+    "build": "npm run clean && npm run build:client && npm run build:server",
+    "build:client": "cd client && npm install && npm run build",
+    "build:server": "cd server && npm install && npm run build",
+    "clean": "rm -rf dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "dhruv",
   "license": "ISC",
