@@ -9,7 +9,9 @@ const port = process.env.PORT || 5000;
 connectToMongo();
 
 // Enable CORS
-app.use(cors());
+app.use(cors({
+  origin: '*'
+}));
 
 // Parse JSON bodies
 app.use(express.json());
