@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
    "start": "node index.js",
-    "build": "npm run clean && npm run build",
-  
-    "clean": "rm -rf dist",
+    "build": "npm run build",
+,
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "dhruv",
