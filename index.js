@@ -17,10 +17,7 @@ app.use('/api/notes',require('./routes/notes'))
 app.get('/', (req, res) => {
   res.send(`There is Nothing here`)
 })
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  next();
-});
+
 app.listen(process.env.PORT || port, () => {
   console.log(`iNotebook_Backend listening at http://localhost:${port}`)
 })
