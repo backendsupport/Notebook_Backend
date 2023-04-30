@@ -1,31 +1,22 @@
-const connectToMongo = require('./db');
-const express = require('express');
-const cors = require('cors');
-
-const app = express();
-const port = process.env.PORT || 5000;
-
-// Connect to MongoDB
+const connectToMongo=require('./db');
 connectToMongo();
-
-// Enable CORS
-app.use(cors({
-  origin: '*'
-}));
-
-// Parse JSON bodies
+const express = require('express');
+const app = express();
+const port = 5000;
+var cors=require('cors');
+app.use(cors());
 app.use(express.json());
-
-// Routes
-app.use('/api/auth', require('./routes/auth'));
-app.use('/api/notes', require('./routes/notes'));
-
-// Default route
+//Availabe Notes
+app.use('/api/auth',require('./routes/auth'))
+app.use('/api/notes',require('./routes/notes'))
 app.get('/', (req, res) => {
-  res.send(`There is Nothing here`);
+  res.send(`There is Nothing here`)
+})
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
 });
-
-// Start the server
-app.listen(port, () => {
-  console.log(`iNotebook_Backend listening at http://localhost:${port}`);
-});
+app.listen(process.env.PORT || port, () => {
+  console.log(`iNotebook_Backend listening at http://localhost:${port}`)
+})
+  
