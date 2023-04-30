@@ -7,6 +7,7 @@ var cors=require('cors');
 const corsOptions = {
   origin: "*",
 };
+app.options('*', cors(corsOptions));
 
 app.use(cors(corsOptions));
 
