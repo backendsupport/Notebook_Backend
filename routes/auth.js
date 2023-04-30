@@ -6,8 +6,15 @@ const { body, validationResult } = require('express-validator');
 const jwt = require('jsonwebtoken');
 const jwtsecret="DHruv PATel is gen!us"
 const fetchuser=require('../middleware/fetchUser');
+
 //ROUTE 1:  Create a user using post "/api/auth/" does not require authincation
 //IF THERE ARE ERROR MAKE ERROR VISIBLE
+// Enable CORS
+router.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 router.post('/createuser',[
    body('email','Enter a valid email').isEmail(),
    body('name','Enter a valid name').isLength({ min: 3 }),
