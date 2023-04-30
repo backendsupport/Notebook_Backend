@@ -4,6 +4,12 @@ const router=express.Router();
 const Notes=require('../model/Notes');
 const { body, validationResult } = require('express-validator');
 //Route 1: Get All the Notes using GET"/API/note/fetchallNote". Login required
+// Enable CORS
+router.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 router.get('/fetchallNote',fetchuser,async (req,res)=>{
     try {const note=await Notes.find({user:req.user.id});
     res.json(note); }
